@@ -28,7 +28,7 @@ def index(request,month,year):
         year = request.POST['year']
         if ((year is not None) and (year.isdigit() == False)):
             year=datetime.date.today().year
-
+        year=int(year)
         month_number = list(calendar.month_name).index(month)
         cal = HTMLCalendar().formatmonth(year,month_number)
         
