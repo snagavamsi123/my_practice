@@ -14,16 +14,32 @@
     {% for event in events %}
     
     <strong>{{event}} </strong>  <br>
-    <li>
-        <ol>{{ event.name}}</ol>
-        <ol>{{ event.event_date}}</ol>
-        <ol>{{ event.venue}}</ol>
-        <ol>{{ event.manager}}</ol>
-        <ol>{{ event.description}}</ol>
-        <ol>{{ event.attendees}}</ol>
+    <ul>
+        <li> Name           : {{ event.name}}</li>
+        <li> Date           : {{ event.event_date}}</li>
+        <li> Venue          : {{ event.venue}}</li>
+        <li>Venue Details   :</li>
+               
+                <ul>Venue Name  : <strong>{{event.venue.name}}</strong> </ul>
+                <ul>Address     : <strong>{{event.venue.address}}</strong> </ul>
+                <ul>Zip Code    : <strong>{{event.venue.zip_code}}</strong> </ul>
+                <ul>Phone       : <strong>{{event.venue.phone}}</strong> </ul>
+                <ul>Web         : <strong>{{event.venue.web}}</strong> </ul>
+                <ul>Email       : <strong>{{event.venue.email}}</strong> </ul>
 
 
-    </li>
+            
+
+        <li> Manager        : {{ event.manager}}</li>
+        <li> Description    : {{ event.description}}</li>
+        <li> Attendees      : </li>
+
+        {% for Attendee in event.attendees.all %}
+            <ul>{{Attendee}}</ul>
+        {% endfor %}
+
+
+    </ul>
 
     {% endfor %}
     

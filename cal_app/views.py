@@ -4,7 +4,6 @@ import calendar
 from calendar import HTMLCalendar
 import datetime
 from .models import Event
-#https://wetransfer.com/downloads/6cefe1223e0361fab40313e1f403c1c620210707054313/ce51ceefd7cf523bcb6e7af68b09e09420210707054329/00ded7
 
 def home(request):
     if request.method=='POST':

@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
+from django.utils import timezone
 
 class Venue(models.Model):
     name        =   models.CharField('Venue Name',max_length=100)
@@ -23,7 +24,7 @@ class MyClubUser(models.Model):
 
 class Event(models.Model):
     name        =   models.CharField('Event Name',max_length=100)
-    event_date  =   models.DateTimeField('Event Date'),
+    event_date  =   models.DateTimeField('Event Date',default=timezone.now)
     #venue      =   models.CharField(max_length=100)
     venue       =   models.ForeignKey(Venue,blank=True,null=True,on_delete=models.CASCADE)
     manager     =   models.CharField(max_length=100)
