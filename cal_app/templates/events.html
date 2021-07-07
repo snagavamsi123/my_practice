@@ -1,12 +1,33 @@
+{% extends 'base.html' %}
+    {% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Events</title>
 </head>
 <body>
     
+    {% for event in events %}
+    
+    <strong>{{event}} </strong>  <br>
+    <li>
+        <ol>{{ event.name}}</ol>
+        <ol>{{ event.event_date}}</ol>
+        <ol>{{ event.venue}}</ol>
+        <ol>{{ event.manager}}</ol>
+        <ol>{{ event.description}}</ol>
+        <ol>{{ event.attendees}}</ol>
+
+
+    </li>
+
+    {% endfor %}
+    
 </body>
 </html>
+
+{% endblock %}
