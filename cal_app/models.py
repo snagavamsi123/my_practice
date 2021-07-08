@@ -1,6 +1,7 @@
 from django.db import models
-from django.db.models.deletion import CASCADE
+#from django.db.models.deletion import CASCADE
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Venue(models.Model):
     name        =   models.CharField('Venue Name',max_length=100)
@@ -27,7 +28,8 @@ class Event(models.Model):
     event_date  =   models.DateTimeField('Event Date',default=timezone.now)
     #venue      =   models.CharField(max_length=100)
     venue       =   models.ForeignKey(Venue,blank=True,null=True,on_delete=models.CASCADE)
-    manager     =   models.CharField(max_length=100)
+    #manager     =   models.CharField(max_length=100) #this is for admin only
+    manager     =   models.ForeignKey(User,blank=True,null=True,on_delete=models.SET_NULL)
     description =   models.TextField(blank=True)
     attendees   =   models.ManyToManyField(MyClubUser,blank=True,null=True)
 

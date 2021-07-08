@@ -33,7 +33,7 @@
         <li> Manager        : {{ event.manager}}</li>
         <li> Description    : {{ event.description}}</li>
         <li> Attendees      : </li>
-
+ 
         {% for Attendee in event.attendees.all %}
             <ul>{{Attendee}}</ul>
         {% endfor %}
