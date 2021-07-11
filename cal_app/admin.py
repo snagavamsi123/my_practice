@@ -5,16 +5,17 @@ from .models import Venue,Event,MyClubUser
 #admin.site.register(Venue)
 #admin.site.register(Event)
 #admin.site.register(MyClubUser)
-
-@admin.register(Venue)
+@admin.register(Venue) 
 class VenueAdmin(admin.ModelAdmin):
     list_display = ('name','address','phone')
-    ordering = ('name',)
+    ordering = ('name',)     
     search_fields= ('name','address','phone','email')
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
+    fields = (('name','venue',),'event_date','description','manager')
     list_display = ('name','event_date','venue')
+    list_filter  =('name','venue','event_date')
     ordering = ('event_date',)
     search_fields = ('name','venue__name','venue__zip_code','venue__address','event_date')
 
@@ -22,7 +23,7 @@ class EventAdmin(admin.ModelAdmin):
 class AdminMyclubUser(admin.ModelAdmin):
     list_display=('first_name','last_name','user_email')
     search_fields=('first_name','user_email','last_name')
-    ordering = ('first_name',)
+    ordering = ('first_name',)     
 
 
 
