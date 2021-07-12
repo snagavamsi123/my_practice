@@ -6,6 +6,7 @@ import datetime
 from .models import Event
 from .forms import VenueForm
 from django.http import HttpResponseRedirect
+import os
 
 def home(request):
     if request.method=='POST':
@@ -57,6 +58,7 @@ def add_venue(request):
             form.save()
             return HttpResponseRedirect('/add_venue?submitted=True')
     else:
+
         form = VenueForm
 
         if 'submitted' in request.GET:
